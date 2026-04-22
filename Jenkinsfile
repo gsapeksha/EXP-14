@@ -4,21 +4,20 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                bat 'dir'
-                bat 'mvn -f Calculator/pom.xml clean compile'
+                bat 'mvn clean compile'
             }
         }
 
         stage('Test') {
             steps {
-                bat 'mvn -f Calculator/pom.xml test'
+                bat 'mvn test'
             }
         }
     }
 
     post {
         always {
-            junit 'Calculator/target/surefire-reports/*.xml'
+            junit 'target/surefire-reports/*.xml'
         }
     }
 }
