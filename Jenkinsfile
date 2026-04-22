@@ -4,17 +4,14 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                dir('Calculator') {
-                    bat 'mvn clean compile'
-                }
+                bat 'dir'
+                bat 'mvn -f Calculator/pom.xml clean compile'
             }
         }
 
         stage('Test') {
             steps {
-                dir('Calculator') {
-                    bat 'mvn test'
-                }
+                bat 'mvn -f Calculator/pom.xml test'
             }
         }
     }
