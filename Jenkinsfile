@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                dir('calculator') {
+                dir('Calculator') {
                     bat 'mvn clean compile'
                 }
             }
@@ -12,7 +12,7 @@ pipeline {
 
         stage('Test') {
             steps {
-                dir('calculator') {
+                dir('Calculator') {
                     bat 'mvn test'
                 }
             }
@@ -21,7 +21,7 @@ pipeline {
 
     post {
         always {
-            junit 'calculator/target/surefire-reports/*.xml'
+            junit 'Calculator/target/surefire-reports/*.xml'
         }
     }
 }
